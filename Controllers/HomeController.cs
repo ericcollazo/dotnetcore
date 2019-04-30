@@ -5,13 +5,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using dotnetcore.Models;
+using dotnetcore.Classes;
 
 namespace dotnetcore.Controllers
 {
     public class HomeController : Controller
     {
+        private Api _api = new Api();
+
         public IActionResult Index()
         {
+            ViewBag.list = _api.GetList();
+            
             return View();
         }
 
