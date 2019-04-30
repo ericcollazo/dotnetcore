@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   site:
-    image: docker-dotnetcore
+    image: dotnetcore
     ports:
       - target: 80
         published: 5000
