@@ -10,7 +10,7 @@ namespace dotnetcore.Classes
 {
     public static class Api
     {
-        public static List<string> Get()
+        public static List<string> Get(string endpoint)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -20,7 +20,7 @@ namespace dotnetcore.Classes
                     
                     client.DefaultRequestHeaders.Accept.Add(contentType);
                     
-                    HttpResponseMessage response = client.GetAsync("/api/Values").Result;
+                    HttpResponseMessage response = client.GetAsync("/api/" + endpoint).Result;
                     
                     string stringData = response.Content.ReadAsStringAsync().Result;
 

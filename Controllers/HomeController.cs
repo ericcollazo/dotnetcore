@@ -18,7 +18,7 @@ namespace dotnetcore.Controllers
         {            
             using (HttpClient client = new HttpClient())
                {
-                    ViewBag.List = Api.Get();
+                    ViewBag.List = Api.Get("Values");
 
                     return View();
                 }
