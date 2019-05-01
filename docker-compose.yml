@@ -5,4 +5,4 @@ services:
     image: dotnetcore
     ports:
       - target: 80
-        published: 5000
+        published: 4000
