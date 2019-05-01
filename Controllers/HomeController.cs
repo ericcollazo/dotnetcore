@@ -14,19 +14,11 @@ namespace dotnetcore.Controllers
 {
     public class HomeController : Controller
     {
-        //private Api _api = new Api();
-
         public ActionResult<IEnumerable<string>> Index()
         {            
             using (HttpClient client = new HttpClient())
                {
-                    client.BaseAddress = new Uri ("http://localhost:5000");
-                    MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json");
-                    client.DefaultRequestHeaders.Accept.Add(contentType);
-                    HttpResponseMessage response = client.GetAsync("/api/Values").Result;
-                    string stringData = response.Content.ReadAsStringAsync().Result;
-                    List<string> data = JsonConvert.DeserializeObject<List<string>>(stringData);
-                    ViewBag.List = data;
+                    ViewBag.List = Api.Get();
 
                     return View();
                 }
