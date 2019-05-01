@@ -1,4 +1,6 @@
+using dotnetcore.Models;
+using System.Collections.Generic;
 public class ValueModel
 {
-    public string[] values { get; }
+    public IEnumerable<Value> values { get; set; }
 }

@@ -20,13 +20,14 @@ namespace dotnetcore.Classes
             return await GetAsync<List<string>>(requestUrl);
         }
 
-        private async Task<T> GetAsync<T>(Uri requestUrl)
+        private async Task<List<string>> GetAsync<T>(Uri requestUrl)
         {
             addHeaders();
             var response = await _httpClient.GetAsync(requestUrl);
             response.EnsureSuccessStatusCode();
             var data = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<T>(data);
+            List<string> retVal = JsonConvert.DeserializeObject<List<string>>(data);
+            return retVal;
         }
         private Uri CreateRequestUri(string relativePath, string queryString = "")
         {
