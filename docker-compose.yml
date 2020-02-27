@@ -2,14 +2,14 @@ version: '3.4'
 
 services:
   site:
-    image: dotnetcore
+    image: dtr.ericcollazo.net/developers/web-site:v2
     ports:
       - target: 80
         published: 8888
     networks:
       - my_net
   api:
-    image: dotnetcore-api
+    image: dtr.ericcollazo.net/developers/api:v1
     networks:
       - my_net
 

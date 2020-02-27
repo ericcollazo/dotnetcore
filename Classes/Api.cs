@@ -14,7 +14,7 @@ namespace dotnetcore.Classes
         {
             using (HttpClient client = new HttpClient())
             {
-                    client.BaseAddress = new Uri ("http://api");
+                    client.BaseAddress = new Uri ("https://localhost:5001");
                     
                     MediaTypeWithQualityHeaderValue contentType = new MediaTypeWithQualityHeaderValue("application/json");
                     
